@@ -1,6 +1,25 @@
-# Allow all crawlers
+# Allow all crawlers - Optimized for SEO
 User-agent: *
 Allow: /
+Crawl-delay: 0
 
-# Sitemap location
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Image specific
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Sitemap locations
 Sitemap: https://faridsavarudin.vercel.app/sitemap.xml
+Sitemap: https://faridsavarudin.vercel.app/sitemap-0.xml
+
+# Host preference
+Host: https://faridsavarudin.vercel.app

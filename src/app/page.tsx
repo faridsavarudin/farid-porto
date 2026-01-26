@@ -7,46 +7,137 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  // Structured data for SEO
+  // Enhanced Structured data for better SEO ranking
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": ["Person", "ProfilePage"],
     name: "Farid Savarudin",
-    jobTitle: "Android Developer",
-    description: "Experienced Android Developer specializing in Kotlin, Kotlin Multiplatform, Flutter, and Jetpack Compose with 5+ years of professional experience.",
+    alternateName: "Farid Savarudin Android Developer",
+    jobTitle: "Senior Android Developer",
+    description: "Experienced Android Developer specializing in Kotlin, Kotlin Multiplatform, Flutter, and Jetpack Compose with 8+ years of professional experience building innovative mobile applications.",
     url: "https://faridsavarudin.vercel.app",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://faridsavarudin.vercel.app"
+    },
+    image: "https://faridsavarudin.vercel.app/og-image.jpg",
     sameAs: [
       "https://github.com/faridsavarudin",
       "https://www.linkedin.com/in/faridsavarudin",
     ],
     knowsAbout: [
       "Android Development",
-      "Kotlin",
-      "Kotlin Multiplatform",
-      "Flutter",
+      "Kotlin Programming",
+      "Kotlin Multiplatform Mobile",
+      "Flutter Development",
       "Jetpack Compose",
       "Compose Multiplatform",
-      "Java",
-      "Mobile Development",
+      "Java Programming",
+      "Mobile Application Development",
       "Cross-platform Development",
-      "React",
+      "React.js",
       "Vue.js",
-      "Laravel",
+      "Laravel PHP Framework",
       "Firebase",
-      "REST API",
+      "REST API Development",
+      "Mobile UI/UX Design",
+      "Android SDK",
+      "Material Design",
+      "MVVM Architecture",
+      "Clean Architecture",
     ],
     worksFor: {
       "@type": "Organization",
       name: "PT Astronaut Teknologi Indonesia",
+      url: "https://astrnt.co",
     },
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Android Developer",
+      occupationLocation: {
+        "@type": "Country",
+        name: "Indonesia"
+      },
+      estimatedSalary: {
+        "@type": "MonetaryAmountDistribution",
+        name: "base",
+        currency: "IDR"
+      },
+      description: "Develops native and cross-platform mobile applications for Android devices",
+      skills: "Kotlin, Java, Flutter, Jetpack Compose, Android SDK, Kotlin Multiplatform"
+    },
+    knowsLanguage: ["English", "Indonesian"],
+    award: "5+ years professional Android development experience",
+  };
+
+  // BreadcrumbList Schema for better navigation understanding
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://faridsavarudin.vercel.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://faridsavarudin.vercel.app/#about"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Skills",
+        "item": "https://faridsavarudin.vercel.app/#skills"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Projects",
+        "item": "https://faridsavarudin.vercel.app/#projects"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Contact",
+        "item": "https://faridsavarudin.vercel.app/#contact"
+      }
+    ]
+  };
+
+  // Website Schema
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Farid Savarudin - Android Developer Portfolio",
+    "alternateName": ["Farid Savarudin", "Farid Savarudin Portfolio"],
+    "url": "https://faridsavarudin.vercel.app",
+    "description": "Professional Android Developer portfolio showcasing mobile applications and projects",
+    "inLanguage": "en",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://faridsavarudin.vercel.app/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   };
 
   return (
     <>
-      {/* Structured Data for SEO */}
+      {/* Enhanced Structured Data for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       
       <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">

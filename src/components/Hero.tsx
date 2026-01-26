@@ -5,7 +5,12 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative px-4">
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center relative px-4"
+      itemScope 
+      itemType="https://schema.org/Person"
+    >
       <div className="max-w-7xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -13,21 +18,22 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-            Hi, I&apos;m <span className="text-blue-500">Farid Savarudin</span>
+            Hi, I&apos;m <span className="text-blue-500" itemProp="name">Farid Savarudin</span>
           </h1>
-          <h2 className="text-2xl md:text-4xl text-gray-300 mb-6">
-            Android Developer
+          <h2 className="text-2xl md:text-4xl text-gray-300 mb-6" itemProp="jobTitle">
+            Professional Android Developer
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-            Passionate about creating beautiful and functional mobile applications
-            that provide seamless user experiences
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8" itemProp="description">
+            Experienced mobile developer with 8+ years building innovative Android applications using Kotlin, Flutter, and Jetpack Compose. Specializing in native and cross-platform mobile development.
           </p>
 
           <div className="flex justify-center gap-6 mb-12">
             <motion.a
               href="https://github.com/faridsavarudin"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer me"
+              aria-label="GitHub Profile"
+              itemProp="url"
               className="text-gray-400 hover:text-blue-500 transition-colors"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
@@ -37,7 +43,9 @@ export default function Hero() {
             <motion.a
               href="https://linkedin.com/in/faridsavarudin"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer me"
+              aria-label="LinkedIn Profile"
+              itemProp="sameAs"
               className="text-gray-400 hover:text-blue-500 transition-colors"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
@@ -46,6 +54,8 @@ export default function Hero() {
             </motion.a>
             <motion.a
               href="mailto:farid.savarudin@example.com"
+              aria-label="Email Contact"
+              itemProp="email"
               className="text-gray-400 hover:text-blue-500 transition-colors"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
