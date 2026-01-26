@@ -1,0 +1,10 @@
+# Vercel Configuration
+# This file is automatically detected by Vercel
+
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "outputDirectory": ".next"
+}
