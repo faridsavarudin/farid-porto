@@ -5,14 +5,75 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Farid Savarudin - Android Developer Portfolio",
-  description: "Portfolio website showcasing Android development projects and skills by Farid Savarudin",
-  keywords: ["Android Developer", "Mobile Development", "Portfolio", "Farid Savarudin", "Kotlin", "Java"],
-  authors: [{ name: "Farid Savarudin" }],
+  title: "Farid Savarudin - Android Developer | Mobile App Developer Portfolio",
+  description: "Experienced Android Developer specializing in Kotlin, Kotlin Multiplatform, Flutter, and Jetpack Compose. 5+ years building mobile applications. View my portfolio of Android apps, cross-platform projects, and full-stack development work.",
+  keywords: [
+    "Farid Savarudin",
+    "Android Developer",
+    "Android Developer Indonesia",
+    "Android Developer Bandung",
+    "Mobile Developer",
+    "Mobile App Developer",
+    "Kotlin Developer",
+    "Kotlin Multiplatform",
+    "Flutter Developer",
+    "Jetpack Compose",
+    "Compose Multiplatform",
+    "Cross Platform Developer",
+    "React Developer",
+    "Vue.js Developer",
+    "Laravel Developer",
+    "Full Stack Developer",
+    "Android SDK",
+    "Java Developer",
+    "Mobile Application Development",
+    "PT Astronaut Teknologi Indonesia",
+    "ASTRNT Developer",
+    "Android Portfolio",
+    "Farid Savarudin Portfolio"
+  ],
+  authors: [{ name: "Farid Savarudin", url: "https://faridsavarudin.vercel.app" }],
+  creator: "Farid Savarudin",
+  publisher: "Farid Savarudin",
   openGraph: {
-    title: "Farid Savarudin - Android Developer Portfolio",
-    description: "Portfolio website showcasing Android development projects and skills",
+    title: "Farid Savarudin - Professional Android Developer",
+    description: "Experienced Android Developer with 5+ years expertise in Kotlin, Flutter, and cross-platform mobile development. Specializing in native Android, Kotlin Multiplatform, and modern mobile architectures.",
+    url: "https://faridsavarudin.vercel.app",
+    siteName: "Farid Savarudin Portfolio",
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://faridsavarudin.vercel.app/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Farid Savarudin - Android Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Farid Savarudin - Android Developer",
+    description: "Experienced Android & Mobile Developer | Kotlin | Flutter | Jetpack Compose",
+    creator: "@faridsavarudin",
+    images: ["https://faridsavarudin.vercel.app/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
+  alternates: {
+    canonical: "https://faridsavarudin.vercel.app",
   },
 };
 

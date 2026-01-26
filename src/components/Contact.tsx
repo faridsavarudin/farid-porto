@@ -38,19 +38,19 @@ export default function Contact() {
     {
       icon: <FaEnvelope className="text-3xl text-blue-500" />,
       title: "Email",
-      value: "farid.savarudin@example.com",
-      link: "mailto:farid.savarudin@example.com"
+      value: "faridsavarudin@gmail.com",
+      link: "mailto:faridsavarudin@gmail.com"
     },
     {
       icon: <FaPhone className="text-3xl text-blue-500" />,
       title: "Phone",
-      value: "+62 812-3456-7890",
-      link: "tel:+6281234567890"
+      value: "+62 853-5349-8964",
+      link: "tel:+6285353498964"
     },
     {
       icon: <FaMapMarkerAlt className="text-3xl text-blue-500" />,
       title: "Location",
-      value: "Jakarta, Indonesia",
+      value: "Tasikmalaya, Indonesia",
       link: "#"
     }
   ];

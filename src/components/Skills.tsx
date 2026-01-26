@@ -6,7 +6,10 @@ import {
   FaJava, 
   FaGitAlt, 
   FaDatabase,
-  FaFigma 
+  FaFigma,
+  FaReact,
+  FaVuejs,
+  FaLaravel
 } from 'react-icons/fa';
 import { 
   SiKotlin, 
@@ -15,7 +18,9 @@ import {
   SiJetpackcompose,
   SiAndroidstudio,
   SiPostman,
-  SiGradle
+  SiGradle,
+  SiFlutter,
+  SiComposer
 } from 'react-icons/si';
 
 export default function Skills() {
@@ -28,12 +33,22 @@ export default function Skills() {
       ]
     },
     {
-      category: "Android Development",
+      category: "Mobile Development",
       skills: [
         { name: "Android SDK", icon: <FaAndroid className="text-5xl" />, color: "text-green-500" },
+        { name: "Kotlin Multiplatform", icon: <SiKotlin className="text-5xl" />, color: "text-purple-600" },
         { name: "Jetpack Compose", icon: <SiJetpackcompose className="text-5xl" />, color: "text-blue-500" },
+        { name: "Compose Multiplatform", icon: <SiComposer className="text-5xl" />, color: "text-blue-600" },
+        { name: "Flutter", icon: <SiFlutter className="text-5xl" />, color: "text-cyan-400" },
         { name: "Android Studio", icon: <SiAndroidstudio className="text-5xl" />, color: "text-green-400" },
-        { name: "Gradle", icon: <SiGradle className="text-5xl" />, color: "text-teal-500" },
+      ]
+    },
+    {
+      category: "Web Development",
+      skills: [
+        { name: "React", icon: <FaReact className="text-5xl" />, color: "text-cyan-500" },
+        { name: "Vue.js", icon: <FaVuejs className="text-5xl" />, color: "text-green-600" },
+        { name: "Laravel", icon: <FaLaravel className="text-5xl" />, color: "text-red-600" },
       ]
     },
     {
@@ -48,6 +63,7 @@ export default function Skills() {
       category: "Tools & Others",
       skills: [
         { name: "Git", icon: <FaGitAlt className="text-5xl" />, color: "text-orange-600" },
+        { name: "Gradle", icon: <SiGradle className="text-5xl" />, color: "text-teal-500" },
         { name: "Postman", icon: <SiPostman className="text-5xl" />, color: "text-orange-500" },
         { name: "Figma", icon: <FaFigma className="text-5xl" />, color: "text-pink-500" },
       ]
