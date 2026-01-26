@@ -19,8 +19,7 @@ import {
   SiAndroidstudio,
   SiPostman,
   SiGradle,
-  SiFlutter,
-  SiComposer
+  SiFlutter
 } from 'react-icons/si';
 
 export default function Skills() {
@@ -38,7 +37,7 @@ export default function Skills() {
         { name: "Android SDK", icon: <FaAndroid className="text-5xl" />, color: "text-green-500" },
         { name: "Kotlin Multiplatform", icon: <SiKotlin className="text-5xl" />, color: "text-purple-600" },
         { name: "Jetpack Compose", icon: <SiJetpackcompose className="text-5xl" />, color: "text-blue-500" },
-        { name: "Compose Multiplatform", icon: <SiComposer className="text-5xl" />, color: "text-blue-600" },
+        { name: "Compose Multiplatform", icon: <img src="/compose-multiplatform.svg" alt="Compose Multiplatform" className="w-12 h-12" />, color: "" },
         { name: "Flutter", icon: <SiFlutter className="text-5xl" />, color: "text-cyan-400" },
         { name: "Android Studio", icon: <SiAndroidstudio className="text-5xl" />, color: "text-green-400" },
       ]
