@@ -10,16 +10,12 @@ export default function Home() {
   // Enhanced Structured data for better SEO ranking
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": ["Person", "ProfilePage"],
+    "@type": "Person",
     name: "Farid Savarudin",
     alternateName: "Farid Savarudin Android Developer",
     jobTitle: "Senior Android Developer",
-    description: "Experienced Android Developer specializing in Kotlin, Kotlin Multiplatform, Flutter, and Jetpack Compose with 8+ years of professional experience building innovative mobile applications.",
+    description: "Experienced Android Developer specializing in Kotlin, Kotlin Multiplatform, Flutter, and Jetpack Compose with 5+ years of professional experience building innovative mobile applications.",
     url: "https://faridsavarudin.vercel.app",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": "https://faridsavarudin.vercel.app"
-    },
     image: "https://faridsavarudin.vercel.app/og-image.jpg",
     sameAs: [
       "https://github.com/faridsavarudin",
