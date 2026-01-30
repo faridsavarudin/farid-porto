@@ -5,6 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://faridsavarudin.vercel.app'),
   title: {
     default: "Farid Savarudin - Professional Android Developer | Portfolio",
     template: "%s | Farid Savarudin"
@@ -13,11 +14,12 @@ export const metadata: Metadata = {
   applicationName: "Farid Savarudin Portfolio",
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
     apple: '/apple-icon.png',
-    shortcut: '/favicon.svg',
+    shortcut: '/favicon.ico',
   },
   keywords: [
     "Farid Savarudin",
@@ -66,13 +68,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Farid Savarudin - Professional Android Developer | Mobile App Expert",
     description: "⭐ 5+ years experienced Android Developer at PT Astronaut Teknologi Indonesia. Specialist in Kotlin, Kotlin Multiplatform, Flutter & Jetpack Compose. Building innovative mobile solutions.",
-    url: "https://faridsavarudin.vercel.app",
-    siteName: "Farid Savarudin - Android Developer Portfolio",
+    url: "/",
+    siteName: "Farid Savarudin Portfolio",
     locale: "en_US",
     type: "profile",
     images: [
       {
-        url: "https://faridsavarudin.vercel.app/og-image.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Farid Savarudin - Professional Android Developer Portfolio",
@@ -87,7 +89,7 @@ export const metadata: Metadata = {
     description: "⭐ Android & Mobile Developer | 5+ years experience | Kotlin | Flutter | Jetpack Compose | Available for opportunities",
     creator: "@faridsavarudin",
     images: {
-      url: "https://faridsavarudin.vercel.app/og-image.jpg",
+      url: "/og-image.jpg",
       alt: "Farid Savarudin Android Developer Portfolio"
     },
   },
@@ -106,7 +108,7 @@ export const metadata: Metadata = {
     google: "3YnD3Ze8xo30f19p9EB2I3PcpoyWJ2nTumVVYKb4v74",
   },
   alternates: {
-    canonical: "https://faridsavarudin.vercel.app",
+    canonical: "/",
   },
 };
 
@@ -118,13 +120,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>Farid Savarudin - Professional Android Developer | Portfolio</title>
         <meta name="theme-color" content="#1F2937" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="canonical" href="https://faridsavarudin.vercel.app" />
-        <link rel="alternate" hrefLang="en" href="https://faridsavarudin.vercel.app" />
-        <link rel="alternate" hrefLang="id" href="https://faridsavarudin.vercel.app" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
