@@ -13,18 +13,18 @@ export default function About() {
   const highlights = [
     {
       icon: <FaMobile className="text-4xl text-blue-500" />,
-      title: "Mobile Development",
-      description: "Specialized in Android development with expertise in Kotlin and Java"
+      title: "Android & Kotlin Multiplatform",
+      description: "Nine years in Kotlin and Java — Jetpack Compose, Clean Architecture, and Compose Multiplatform shipped to Android and iOS from one codebase."
     },
     {
       icon: <FaCode className="text-4xl text-blue-500" />,
-      title: "Clean Code",
-      description: "Following SOLID principles and best practices for maintainable code"
+      title: "Realtime & Field Systems",
+      description: "MQTT, WebSocket and WebRTC, GPS telemetry and geofencing, offline durability — built for devices mounted in vehicles under unreliable networks."
     },
     {
       icon: <FaUsers className="text-4xl text-blue-500" />,
-      title: "Autonomous Android Developer",
-      description: "Responsible for end-to-end Android development, cross-team coordination with backend and iOS, and delivering production-ready releases."
+      title: "End-to-End Ownership",
+      description: "Sole engineer on four realtime rail and transit systems — architecture, delivery, production debugging, and handover documentation."
     }
   ];
 
@@ -51,22 +51,26 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-2xl font-bold text-white mb-4">
-              Android Developer with a Passion for Innovation
+              Android engineer, 9 years, from HR tech to rail operations
             </h3>
             <p className="text-gray-400 mb-4 leading-relaxed">
-              I&apos;m a dedicated Android developer with a strong foundation in mobile application development.
-              My journey in software development has equipped me with the skills to build robust, scalable,
-              and user-friendly Android applications.
+              From 2020 to 2026 I owned the candidate-facing Android app at ASTRNT end to end,
+              including its incremental Java-to-Kotlin migration on a live app with no feature
+              freeze, the question-type engine, and a media-capture pipeline built to survive
+              unreliable networks and devices.
             </p>
             <p className="text-gray-400 mb-4 leading-relaxed">
-              I specialize in native Android development using Kotlin and Java, with experience in modern
-              Android architecture patterns like MVVM, Clean Architecture, and implementing RESTful APIs.
-              I&apos;m passionate about writing clean, maintainable code and staying up-to-date with the
-              latest Android development trends.
+              Most recently I was the sole engineer on four realtime Android systems for a
+              national rail operator (PT KAI) and a city-bus operator — an in-cab driver tablet,
+              a level-crossing monitoring unit, an on-board passenger-information unit, and a
+              Kotlin Multiplatform passenger app shipped at ~89% shared code with hand-written
+              MapKit interop for the iOS target. Roughly 78,000 lines of Kotlin, sole author.
             </p>
             <p className="text-gray-400 leading-relaxed">
-              When I&apos;m not coding, I enjoy exploring new technologies, contributing to open-source
-              projects, and continuously improving my skills through learning and experimentation.
+              I work in Kotlin and Java with Jetpack Compose, Clean Architecture and MVI/MVVM,
+              and I am most useful on the failure modes that only show up in production —
+              half-open sockets, stale location caches, and errors that never raise. Based in
+              Bandung.
             </p>
           </motion.div>
 

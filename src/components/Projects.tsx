@@ -23,8 +23,98 @@ export default function Projects() {
 
   const projects: ProjectDetail[] = [
     {
+      title: "XORA Connect — Kotlin Multiplatform Passenger App",
+      dateRange: "Feb 2026 - Aug 2026",
+      company: "Agora Techno Solution (Contract)",
+      description: "Compose Multiplatform passenger app (Android + iOS) for a city bus network — route and stop browsing, journey planning, service-disruption notifications and issue reporting — shipped at ~89% shared code across 9 Gradle modules. Sole engineer.",
+      highlights: [
+        "Delivered ~89% shared code across 9 modules with Compose Multiplatform, Ktor, SQLDelight and Koin — four of five feature modules entirely common",
+        "Built realtime vehicle tracking over WebSocket with auto-reconnect",
+        "Fixed a class of failure where the socket reports healthy but delivers nothing — Ktor ping interval, a 90-second stall watchdog and cancellation-aware reconnect",
+        "Wrote ~955 lines of Kotlin/Native iOS interop, including a 610-line MapKit map via UIKitView and cinterop where no multiplatform map library exists",
+        "Integrated Keycloak (OIDC) authentication"
+      ],
+      challenges: [
+        "No multiplatform map library — the iOS map had to be hand-written against MapKit through cinterop",
+        "Half-open WebSockets that send no FIN, freezing the bus markers until the app is killed",
+        "Keeping four of five feature modules fully common without platform leakage"
+      ],
+      impact: "A single Kotlin codebase serving both platforms with a native map on each, and a realtime layer that recovers on its own instead of needing an app restart. Kotlin throughout; not native Swift development.",
+      technologies: ["Kotlin Multiplatform", "Compose Multiplatform", "Ktor", "SQLDelight", "Koin", "WebSocket", "Kotlin/Native cinterop", "MapKit", "Keycloak / OIDC"],
+      duration: "7 months",
+      role: "Sole Engineer",
+      color: "from-blue-600 to-cyan-600"
+    },
+    {
+      title: "LOCOAndroid — Locomotive Driver Tablet",
+      dateRange: "Feb 2026 - Aug 2026",
+      company: "Agora Techno Solution (Contract) • PT KAI",
+      description: "In-cab Android tablet used by locomotive drivers for the length of a shift. Streams GPS telemetry to the operations control centre, raises level-crossing and station proximity warnings, and shows live crossing-camera feeds. Sole engineer.",
+      highlights: [
+        "Built on Clean Architecture + MVI with Jetpack Compose, Hilt, Room and DataStore",
+        "Led a live transport migration from REST/WebSocket to MQTT (HiveMQ), defining the shared topic / payload / acknowledgement contract with the control centre",
+        "Rolled the migration out behind layered feature flags so the running operational path was never interrupted",
+        "Integrated live level-crossing camera streams over RTSP/HLS and WebRTC",
+        "Designed offline durability for telemetry — a Room buffer with mutex-serialised sync that observes network state and broker acknowledgement separately"
+      ],
+      challenges: [
+        "A checkpoint-skip failure where a train passed several waypoints between two GPS ticks in battery-saving mode",
+        "Keeping a safety-critical path alive during a transport-layer migration",
+        "Half-open connections that report healthy while delivering nothing"
+      ],
+      impact: "Replaced nearest-versus-next waypoint logic with a greedy sweep over unpassed waypoints plus sequential-inversion detection, and delivered a working in-cab telemetry and warning system on MQTT with no interruption to the operational path.",
+      technologies: ["Kotlin", "Jetpack Compose", "MVI", "Clean Architecture", "Hilt", "Room", "DataStore", "MQTT (HiveMQ)", "WebRTC", "RTSP/HLS"],
+      duration: "7 months",
+      role: "Sole Android Engineer",
+      color: "from-emerald-600 to-teal-600"
+    },
+    {
+      title: "JPLMonitor — Level-Crossing Monitoring Unit",
+      dateRange: "Feb 2026 - Aug 2026",
+      company: "Agora Techno Solution (Contract) • PT KAI",
+      description: "Android unit installed at railway level-crossing guard posts. Consumes approaching-train telemetry over a shared MQTT contract and drives alarm, siren and gate control, alongside a crossing camera and an on-site AI object-detection feed. Sole engineer.",
+      highlights: [
+        "Built on MVVM with a StateFlow / SharedFlow event bus, Jetpack Compose and multi-module Hilt DI",
+        "Consumed the same MQTT contract as LOCOAndroid — subscribing to train telemetry and replying with acknowledgements",
+        "Implemented generation-guarded reconnect so a stale reconnect cannot silently overwrite the live subscription",
+        "Wired alarm, siren and gate control plus an RTSP camera feed and an on-site AI object-detection feed"
+      ],
+      challenges: [
+        "cleanStart broker sessions that drop every subscription on reconnect — telemetry stops silently while indicators stay green",
+        "Coordinating one payload and acknowledgement contract across two independent apps"
+      ],
+      impact: "A reliable crossing-side monitoring unit that stays in sync with in-cab telemetry and fails loudly rather than silently when the connection drops.",
+      technologies: ["Kotlin", "Jetpack Compose", "MVVM", "StateFlow / SharedFlow", "Hilt", "MQTT (HiveMQ)", "RTSP"],
+      duration: "7 months",
+      role: "Sole Android Engineer",
+      color: "from-amber-600 to-orange-600"
+    },
+    {
+      title: "obupis — On-Board Passenger Information Unit",
+      dateRange: "Feb 2026 - Aug 2026",
+      company: "Agora Techno Solution (Contract)",
+      description: "Tablet unit mounted inside the bus that drives automatic stop announcements and an LED destination board from GPS. 100% Jetpack Compose, MVVM with an event-bus architecture. Live on operating routes. Sole engineer.",
+      highlights: [
+        "Built a GPS geofencing and announcement engine with a three-radius event model (approaching / arriving / exit)",
+        "Hybrid audio pipeline — 48 pre-recorded assets primary with native TTS fallback and loudness correction",
+        "Drove an LED destination board over a custom HTTP protocol discovered by UDP broadcast",
+        "Designed a directional anti-reverse gate that suppresses announcements when the bus travels the wrong way while still guaranteeing forward progress",
+        "Dual-transport telemetry — REST for trip history plus HiveMQ MQTT5 for live tracking"
+      ],
+      challenges: [
+        "A one-shot geofence exit latch that would strand the bus permanently at a stop if an event were simply discarded",
+        "GPS fixes that drop speed to zero on WiFi / cell, breaking ETA",
+        "Changing GPS frequency without restarting the foreground service or cancelling collection"
+      ],
+      impact: "Announcements that stay correct when the bus reverses or crawls between adjacent stops, and an adaptive GPS interval that never restarts the service. Deployed on live operating routes.",
+      technologies: ["Kotlin", "Jetpack Compose", "MVVM", "Geofencing", "FusedLocationProvider", "MQTT5 (HiveMQ)", "TextToSpeech", "Foreground Service", "UDP Discovery"],
+      duration: "7 months",
+      role: "Sole Android Engineer",
+      color: "from-fuchsia-600 to-pink-600"
+    },
+    {
       title: "ASTRNT Video Interview Platform",
-      dateRange: "Nov 2020 - Present",
+      dateRange: "Nov 2020 - Aug 2026",
       company: "PT Astronaut Teknologi Indonesia • Bandung (Hybrid)",
       description: "Enterprise video interview platform SDK and application development, enabling seamless asynchronous recruitment solutions for companies worldwide. Built and maintained critical Android infrastructure serving thousands of users.",
       highlights: [
@@ -43,8 +133,8 @@ export default function Projects() {
       ],
       impact: "Significantly reduced manual release effort, deployment risk, and video-related production failures. Enabled faster SDK adoption and improved overall application stability for enterprise clients.",
       technologies: ["Kotlin", "RxJava2", "Retrofit", "Dagger Hilt", "Firebase", "Realm", "CameraView", "WorkManager", "Glide", "Sentry", "Codemagic CI/CD"],
-      duration: "5+ years (Ongoing)",
-      role: "Android Developer",
+      duration: "~6 years",
+      role: "Android Developer (scope later expanded to full-stack)",
       color: "from-purple-600 to-indigo-600"
     },
     {
@@ -238,7 +328,7 @@ export default function Projects() {
           </h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto mb-4"></div>
           <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-            Here are some of my recent Android development projects showcasing my skills and expertise
+            A selection of recent work — realtime rail and transit systems, a Kotlin Multiplatform app, and earlier Android delivery across enterprise and government
           </p>
         </motion.div>
 

@@ -12,7 +12,7 @@
 
 ## 📋 About
 
-A cutting-edge portfolio website featuring a sleek, responsive design that highlights my professional journey as an Android Developer. Built with modern web technologies and optimized for performance, this portfolio showcases 8+ years of mobile development experience across various industries.
+A portfolio website highlighting my work as an Android & Kotlin Multiplatform engineer. Built with modern web technologies and optimized for performance, it showcases 9 years of mobile development experience across HR tech, rail and transit operations, IoT, media and government.
 
 ### ✨ Key Highlights
 

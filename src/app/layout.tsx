@@ -7,10 +7,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://faridsavarudin.vercel.app'),
   title: {
-    default: "Farid Savarudin - Professional Android Developer | Portfolio",
+    default: "Farid Savarudin - Android & Kotlin Multiplatform Engineer | Portfolio",
     template: "%s | Farid Savarudin"
   },
-  description: "⭐ Professional Android Developer with 8+ years experience at PT Astronaut Teknologi Indonesia. Expert in Kotlin, Kotlin Multiplatform, Flutter, Jetpack Compose. View portfolio of innovative mobile applications and cross-platform projects. Available for Android development opportunities.",
+  description: "Android engineer with 9 years of experience — Kotlin, Kotlin Multiplatform, Jetpack Compose. Recently sole engineer on four realtime Android systems for rail (PT KAI) and city-bus operators: MQTT, WebSocket, WebRTC, GPS telemetry and geofencing. Based in Bandung, available for mobile development opportunities.",
   applicationName: "Farid Savarudin Portfolio",
   icons: {
     icon: [
@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     "Senior Android Developer",
     "Android Developer Indonesia",
     "Android Developer Bandung",
+    "Mobile Developer Bandung",
+    "Kotlin Multiplatform Developer Bandung",
+    "Realtime Android Developer",
+    "MQTT Android Developer",
     "Kotlin Developer Indonesia",
     "Mobile Developer Portfolio",
     "Mobile App Developer",
@@ -66,8 +70,8 @@ export const metadata: Metadata = {
   category: "technology",
   classification: "Portfolio Website",
   openGraph: {
-    title: "Farid Savarudin - Professional Android Developer | Mobile App Expert",
-    description: "⭐ 5+ years experienced Android Developer at PT Astronaut Teknologi Indonesia. Specialist in Kotlin, Kotlin Multiplatform, Flutter & Jetpack Compose. Building innovative mobile solutions.",
+    title: "Farid Savarudin - Android & Kotlin Multiplatform Engineer",
+    description: "Android engineer, 9 years. Recently sole engineer on four realtime Android systems for rail (PT KAI) and city-bus operators — Kotlin, KMP, MQTT, WebSocket, WebRTC, GPS. Based in Bandung.",
     url: "/",
     siteName: "Farid Savarudin Portfolio",
     locale: "en_US",
@@ -85,8 +89,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@faridsavarudin",
-    title: "Farid Savarudin - Professional Android Developer",
-    description: "⭐ Android & Mobile Developer | 5+ years experience | Kotlin | Flutter | Jetpack Compose | Available for opportunities",
+    title: "Farid Savarudin - Android & Kotlin Multiplatform Engineer",
+    description: "Android engineer | 9 years | Kotlin | Kotlin Multiplatform | Jetpack Compose | realtime systems (MQTT, WebSocket, WebRTC) | Bandung | Available for opportunities",
     creator: "@faridsavarudin",
     images: {
       url: "/og-image.jpg",
@@ -120,7 +124,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Farid Savarudin - Professional Android Developer | Portfolio</title>
+        <title>Farid Savarudin - Android & Kotlin Multiplatform Engineer | Portfolio</title>
         <meta name="theme-color" content="#1F2937" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

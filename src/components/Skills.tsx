@@ -1,19 +1,30 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  FaAndroid, 
-  FaJava, 
-  FaGitAlt, 
+import {
+  FaAndroid,
+  FaJava,
+  FaGitAlt,
   FaDatabase,
   FaFigma,
   FaReact,
   FaVuejs,
-  FaLaravel
+  FaLaravel,
+  FaSatelliteDish,
+  FaNetworkWired,
+  FaVideo,
+  FaMapMarkedAlt,
+  FaBluetoothB,
+  FaSitemap,
+  FaLayerGroup,
+  FaBolt,
+  FaCubes,
+  FaExchangeAlt,
+  FaServer
 } from 'react-icons/fa';
-import { 
-  SiKotlin, 
-  SiFirebase, 
+import {
+  SiKotlin,
+  SiFirebase,
   SiSqlite,
   SiJetpackcompose,
   SiAndroidstudio,
@@ -43,6 +54,27 @@ export default function Skills() {
       ]
     },
     {
+      category: "Realtime, Location & IoT",
+      skills: [
+        { name: "MQTT (HiveMQ)", icon: <FaSatelliteDish className="text-5xl" />, color: "text-orange-500" },
+        { name: "WebSocket", icon: <FaNetworkWired className="text-5xl" />, color: "text-blue-400" },
+        { name: "WebRTC / RTSP", icon: <FaVideo className="text-5xl" />, color: "text-red-400" },
+        { name: "GPS & Geofencing", icon: <FaMapMarkedAlt className="text-5xl" />, color: "text-green-500" },
+        { name: "BLE", icon: <FaBluetoothB className="text-5xl" />, color: "text-blue-500" },
+      ]
+    },
+    {
+      category: "Architecture & Libraries",
+      skills: [
+        { name: "MVVM / MVI", icon: <FaSitemap className="text-5xl" />, color: "text-purple-400" },
+        { name: "Clean Architecture", icon: <FaLayerGroup className="text-5xl" />, color: "text-teal-400" },
+        { name: "Coroutines & Flow", icon: <FaBolt className="text-5xl" />, color: "text-yellow-400" },
+        { name: "Hilt / Koin", icon: <FaCubes className="text-5xl" />, color: "text-pink-400" },
+        { name: "Room / SQLDelight", icon: <FaDatabase className="text-5xl" />, color: "text-blue-400" },
+        { name: "Ktor", icon: <FaExchangeAlt className="text-5xl" />, color: "text-indigo-400" },
+      ]
+    },
+    {
       category: "Web Development",
       skills: [
         { name: "React", icon: <FaReact className="text-5xl" />, color: "text-cyan-500" },
@@ -56,6 +88,7 @@ export default function Skills() {
         { name: "Firebase", icon: <SiFirebase className="text-5xl" />, color: "text-yellow-500" },
         { name: "SQLite", icon: <SiSqlite className="text-5xl" />, color: "text-blue-400" },
         { name: "REST API", icon: <FaDatabase className="text-5xl" />, color: "text-gray-400" },
+        { name: "Node.js Scraping", icon: <FaServer className="text-5xl" />, color: "text-green-500" },
       ]
     },
     {

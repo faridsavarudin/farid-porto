@@ -50,7 +50,7 @@ export default function Contact() {
     {
       icon: <FaMapMarkerAlt className="text-3xl text-blue-500" />,
       title: "Location",
-      value: "Tasikmalaya, Indonesia",
+      value: "Bandung, Indonesia",
       link: "#"
     }
   ];
@@ -64,7 +64,7 @@ export default function Contact() {
     {
       icon: <FaLinkedin className="text-2xl" />,
       name: "LinkedIn",
-      link: "https://linkedin.com/in/faridsavarudin"
+      link: "https://linkedin.com/in/farid-savarudin"
     }
   ];
 

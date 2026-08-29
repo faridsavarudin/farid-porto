@@ -13,57 +13,58 @@ export default function Home() {
     "@type": "Person",
     name: "Farid Savarudin",
     alternateName: "Farid Savarudin Android Developer",
-    jobTitle: "Senior Android Developer",
-    description: "Experienced Android Developer specializing in Kotlin, Kotlin Multiplatform, Flutter, and Jetpack Compose with 5+ years of professional experience building innovative mobile applications.",
+    jobTitle: "Android & Kotlin Multiplatform Engineer",
+    description: "Android engineer with 9 years of professional experience in Kotlin, Kotlin Multiplatform and Jetpack Compose, specializing in realtime systems (MQTT, WebSocket, WebRTC), GPS telemetry and geofencing. Based in Bandung, Indonesia.",
     url: "https://faridsavarudin.vercel.app",
     image: "https://faridsavarudin.vercel.app/og-image.jpg",
     sameAs: [
       "https://github.com/faridsavarudin",
-      "https://www.linkedin.com/in/faridsavarudin",
+      "https://www.linkedin.com/in/farid-savarudin",
     ],
     knowsAbout: [
       "Android Development",
       "Kotlin Programming",
       "Kotlin Multiplatform Mobile",
-      "Flutter Development",
-      "Jetpack Compose",
       "Compose Multiplatform",
+      "Jetpack Compose",
       "Java Programming",
+      "Realtime Systems",
+      "MQTT",
+      "WebSocket",
+      "WebRTC",
+      "GPS Telemetry",
+      "Geofencing",
+      "IoT Device Communication",
       "Mobile Application Development",
       "Cross-platform Development",
+      "Kotlin/Native Interop",
       "React.js",
       "Vue.js",
       "Laravel PHP Framework",
       "Firebase",
       "REST API Development",
-      "Mobile UI/UX Design",
       "Android SDK",
-      "Material Design",
       "MVVM Architecture",
+      "MVI Architecture",
       "Clean Architecture",
     ],
-    worksFor: {
-      "@type": "Organization",
-      name: "PT Astronaut Teknologi Indonesia",
-      url: "https://astrnt.co",
-    },
     hasOccupation: {
       "@type": "Occupation",
-      name: "Android Developer",
+      name: "Android & Kotlin Multiplatform Engineer",
       occupationLocation: {
-        "@type": "Country",
-        name: "Indonesia"
+        "@type": "City",
+        name: "Bandung"
       },
       estimatedSalary: {
         "@type": "MonetaryAmountDistribution",
         name: "base",
         currency: "IDR"
       },
-      description: "Develops native and cross-platform mobile applications for Android devices",
-      skills: "Kotlin, Java, Flutter, Jetpack Compose, Android SDK, Kotlin Multiplatform"
+      description: "Builds native Android and Kotlin Multiplatform applications, with a focus on realtime data, GPS telemetry and field-deployed devices",
+      skills: "Kotlin, Java, Jetpack Compose, Kotlin Multiplatform, Android SDK, MQTT, WebSocket, WebRTC, Coroutines, Hilt, Room"
     },
     knowsLanguage: ["English", "Indonesian"],
-    award: "5+ years professional Android development experience",
+    award: "9 years professional Android development experience",
   };
 
   // BreadcrumbList Schema for better navigation understanding

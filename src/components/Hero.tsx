@@ -21,10 +21,10 @@ export default function Hero() {
             Hi, I&apos;m <span className="text-blue-500" itemProp="name">Farid Savarudin</span>
           </h1>
           <h2 className="text-2xl md:text-4xl text-gray-300 mb-6" itemProp="jobTitle">
-            Professional Android Developer
+            Android &amp; Kotlin Multiplatform Engineer
           </h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8" itemProp="description">
-            Experienced mobile developer with 8+ years building innovative Android applications using Kotlin, Flutter, and Jetpack Compose. Specializing in native and cross-platform mobile development.
+            Android engineer with 9 years shipping production apps across HR tech, rail &amp; transit operations, IoT, and media. Recently sole engineer on four realtime Android systems for rail (PT KAI) and city-bus operators, including a Kotlin Multiplatform app at ~89% shared code. Based in Bandung.
           </p>
 
           <div className="flex justify-center gap-6 mb-12">
@@ -41,7 +41,7 @@ export default function Hero() {
               <FaGithub size={32} />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/faridsavarudin"
+              href="https://linkedin.com/in/farid-savarudin"
               target="_blank"
               rel="noopener noreferrer me"
               aria-label="LinkedIn Profile"
@@ -53,7 +53,7 @@ export default function Hero() {
               <FaLinkedin size={32} />
             </motion.a>
             <motion.a
-              href="mailto:farid.savarudin@example.com"
+              href="mailto:faridsavarudin@gmail.com"
               aria-label="Email Contact"
               itemProp="email"
               className="text-gray-400 hover:text-blue-500 transition-colors"

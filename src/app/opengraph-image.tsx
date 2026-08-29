@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
  
 export const runtime = 'edge'
  
-export const alt = 'Farid Savarudin - Professional Android Developer'
+export const alt = 'Farid Savarudin - Android & Kotlin Multiplatform Engineer'
 export const size = {
   width: 1200,
   height: 630,
@@ -87,7 +87,7 @@ export default async function Image() {
               marginBottom: 30,
             }}
           >
-            Professional Android Developer
+            Android · Kotlin Multiplatform Engineer
           </div>
           
           {/* Skills */}
@@ -103,10 +103,10 @@ export default async function Image() {
               Kotlin
             </span>
             <span style={{ background: '#1F2937', padding: '8px 20px', borderRadius: '8px' }}>
-              Flutter
+              Kotlin Multiplatform
             </span>
             <span style={{ background: '#1F2937', padding: '8px 20px', borderRadius: '8px' }}>
-              Jetpack Compose
+              Realtime
             </span>
           </div>
         </div>
