@@ -137,14 +137,20 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       
-      <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-        <Navbar />
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-        <Footer />
+      <main className="relative min-h-screen bg-ink-950 text-ink-200 selection:bg-signal-amber/30">
+        <div
+          className="pointer-events-none fixed inset-0 signal-grid opacity-60"
+          aria-hidden="true"
+        />
+        <div className="relative">
+          <Navbar />
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+          <Footer />
+        </div>
       </main>
     </>
   );

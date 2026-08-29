@@ -1,101 +1,147 @@
 'use client';
 
-import { FaGithub, FaLinkedin, FaEnvelope, FaChevronDown } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from 'react-icons/fa';
+import { motion, useReducedMotion } from 'framer-motion';
+import SystemDiagram from './SystemDiagram';
+
+const socials = [
+  {
+    href: 'https://github.com/faridsavarudin',
+    label: 'GitHub',
+    icon: FaGithub,
+    itemProp: 'url' as const,
+    external: true,
+  },
+  {
+    href: 'https://linkedin.com/in/farid-savarudin',
+    label: 'LinkedIn',
+    icon: FaLinkedin,
+    itemProp: 'sameAs' as const,
+    external: true,
+  },
+  {
+    href: 'mailto:faridsavarudin@gmail.com',
+    label: 'Email',
+    icon: FaEnvelope,
+    itemProp: 'email' as const,
+    external: false,
+  },
+];
 
 export default function Hero() {
+  const reduce = useReducedMotion();
+
+  const rise = (delay: number) =>
+    reduce
+      ? { initial: false as const, animate: { opacity: 1, y: 0 } }
+      : {
+          initial: { opacity: 0, y: 16 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.6, delay, ease: 'easeOut' as const },
+        };
+
   return (
-    <section 
-      id="home" 
-      className="min-h-screen flex items-center justify-center relative px-4"
-      itemScope 
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-24 pb-20"
+      itemScope
       itemType="https://schema.org/Person"
     >
-      <div className="max-w-7xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-            Hi, I&apos;m <span className="text-blue-500" itemProp="name">Farid Savarudin</span>
-          </h1>
-          <h2 className="text-2xl md:text-4xl text-gray-300 mb-6" itemProp="jobTitle">
-            Android &amp; Kotlin Multiplatform Engineer
-          </h2>
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8" itemProp="description">
-            Android engineer with 9 years shipping production apps across HR tech, rail &amp; transit operations, IoT, and media. Recently sole engineer on four realtime Android systems for rail (PT KAI) and city-bus operators, including a Kotlin Multiplatform app at ~89% shared code. Based in Bandung.
-          </p>
+      <div className="pointer-events-none absolute inset-0 horizon-glow" aria-hidden="true" />
 
-          <div className="flex justify-center gap-6 mb-12">
-            <motion.a
-              href="https://github.com/faridsavarudin"
-              target="_blank"
-              rel="noopener noreferrer me"
-              aria-label="GitHub Profile"
-              itemProp="url"
-              className="text-gray-400 hover:text-blue-500 transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaGithub size={32} />
-            </motion.a>
-            <motion.a
-              href="https://linkedin.com/in/farid-savarudin"
-              target="_blank"
-              rel="noopener noreferrer me"
-              aria-label="LinkedIn Profile"
-              itemProp="sameAs"
-              className="text-gray-400 hover:text-blue-500 transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaLinkedin size={32} />
-            </motion.a>
-            <motion.a
-              href="mailto:faridsavarudin@gmail.com"
-              aria-label="Email Contact"
-              itemProp="email"
-              className="text-gray-400 hover:text-blue-500 transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaEnvelope size={32} />
-            </motion.a>
-          </div>
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+        <div>
+          <motion.p {...rise(0)} className="mono-label flex items-center gap-3">
+            <span className="inline-block h-2 w-2 rounded-full bg-signal-green" aria-hidden="true" />
+            Bandung, Indonesia
+          </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="flex justify-center gap-4"
+          <motion.h1
+            {...rise(0.05)}
+            className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink-50 sm:text-5xl md:text-6xl"
           >
+            Hi, I&apos;m{' '}
+            <span className="text-signal-amber" itemProp="name">
+              Farid Savarudin
+            </span>
+          </motion.h1>
+
+          <motion.h2
+            {...rise(0.12)}
+            className="mt-5 text-xl text-ink-300 md:text-2xl"
+            itemProp="jobTitle"
+          >
+            Android &amp; Kotlin Multiplatform Engineer
+          </motion.h2>
+
+          <motion.p
+            {...rise(0.18)}
+            className="mt-6 max-w-prose text-base leading-relaxed text-ink-400 md:text-lg"
+            itemProp="description"
+          >
+            Android engineer with 9 years shipping production apps across HR tech, rail &amp;
+            transit operations, IoT, and media. Recently sole engineer on four realtime Android
+            systems for rail (PT KAI) and city-bus operators, including a Kotlin Multiplatform app
+            at ~89% shared code. Based in Bandung.
+          </motion.p>
+
+          <motion.div {...rise(0.24)} className="mt-9 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+              className="rounded-md bg-signal-amber px-6 py-3 text-sm font-semibold text-ink-950 transition-colors hover:bg-[#f0b358]"
             >
               View My Work
             </a>
             <a
               href="#contact"
-              className="bg-transparent border-2 border-blue-600 hover:bg-blue-600 text-blue-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+              className="rounded-md border border-ink-700 px-6 py-3 text-sm font-semibold text-ink-200 transition-colors hover:border-ink-500 hover:text-ink-50"
             >
               Contact Me
             </a>
           </motion.div>
+
+          <motion.ul {...rise(0.3)} className="mt-10 flex flex-wrap gap-x-6 gap-y-3">
+            {socials.map(({ href, label, icon: Icon, itemProp, external }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  aria-label={label}
+                  itemProp={itemProp}
+                  {...(external ? { target: '_blank', rel: 'noopener noreferrer me' } : {})}
+                  className="group flex items-center gap-2 font-mono text-xs uppercase tracking-label text-ink-400 transition-colors hover:text-signal-amber"
+                >
+                  <Icon size={16} aria-hidden="true" />
+                  <span>{label}</span>
+                  {external ? (
+                    <span className="text-ink-700 transition-colors group-hover:text-signal-amber">
+                      ↗
+                    </span>
+                  ) : null}
+                </a>
+              </li>
+            ))}
+          </motion.ul>
+        </div>
+
+        <motion.div
+          initial={reduce ? false : { opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
+          className="hidden lg:block"
+        >
+          <SystemDiagram />
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
+      <motion.a
+        href="#about"
+        aria-label="Scroll to About"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-ink-600 transition-colors hover:text-signal-amber"
+        animate={reduce ? undefined : { y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 2.4, ease: 'easeInOut' }}
       >
-        <a href="#about" className="text-gray-400 hover:text-blue-500">
-          <FaChevronDown size={32} />
-        </a>
-      </motion.div>
+        <FaArrowDown size={18} />
+      </motion.a>
     </section>
   );
 }

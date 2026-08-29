@@ -6,41 +6,44 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 border-t border-gray-800 py-8 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-gray-400 text-center md:text-left">
-            <p className="flex items-center gap-2 justify-center md:justify-start">
-              Made with <FaHeart className="text-red-500" /> by Farid Savarudin
+    <footer className="border-t border-ink-800/70 bg-ink-950 px-6 py-12">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+          <div className="space-y-1.5">
+            <p className="flex items-center gap-2 text-sm text-ink-300">
+              Made with <FaHeart className="text-signal-red" aria-hidden="true" /> by Farid
+              Savarudin
             </p>
-            <p className="text-sm mt-2">© {currentYear} All rights reserved.</p>
+            <p className="font-mono text-[0.7rem] uppercase tracking-label text-ink-600">
+              © {currentYear} All rights reserved.
+            </p>
           </div>
 
-          <div className="flex gap-6">
+          <div className="flex gap-5">
             <a
               href="https://github.com/faridsavarudin"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-500 transition-colors"
+              className="text-ink-500 transition-colors hover:text-signal-amber"
               aria-label="GitHub"
             >
-              <FaGithub size={24} />
+              <FaGithub size={20} />
             </a>
             <a
               href="https://linkedin.com/in/farid-savarudin"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-500 transition-colors"
+              className="text-ink-500 transition-colors hover:text-signal-amber"
               aria-label="LinkedIn"
             >
-              <FaLinkedin size={24} />
+              <FaLinkedin size={20} />
             </a>
           </div>
         </div>
 
-        <div className="mt-6 text-center text-gray-500 text-sm">
-          <p>Built with Next.js, TypeScript, and Tailwind CSS</p>
-        </div>
+        <p className="mt-8 font-mono text-[0.7rem] uppercase tracking-label text-ink-700">
+          Built with Next.js, TypeScript, and Tailwind CSS
+        </p>
       </div>
     </footer>
   );

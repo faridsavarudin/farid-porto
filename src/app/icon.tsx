@@ -1,32 +1,42 @@
 import { ImageResponse } from 'next/og'
- 
+
 export const runtime = 'edge'
- 
+
 export const size = {
   width: 32,
   height: 32,
 }
 export const contentType = 'image/png'
- 
+
 export default function Icon() {
   return new ImageResponse(
     (
       <div
         style={{
-          fontSize: 24,
-          background: 'linear-gradient(135deg, #3DDC84 0%, #07C160 100%)',
+          background: '#0d131a',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
           borderRadius: '20%',
           fontFamily: 'monospace',
-          fontWeight: 'bold',
+          position: 'relative',
         }}
       >
-        &lt;/&gt;
+        <span style={{ fontSize: 17, fontWeight: 700, color: '#e7edf2', letterSpacing: -1 }}>
+          fs
+        </span>
+        <span
+          style={{
+            position: 'absolute',
+            right: 6,
+            top: 8,
+            width: 4,
+            height: 16,
+            background: '#e7a33e',
+          }}
+        />
       </div>
     ),
     {

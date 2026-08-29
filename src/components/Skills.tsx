@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import {
   FaAndroid,
   FaJava,
@@ -20,7 +21,7 @@ import {
   FaBolt,
   FaCubes,
   FaExchangeAlt,
-  FaServer
+  FaServer,
 } from 'react-icons/fa';
 import {
   SiKotlin,
@@ -30,152 +31,135 @@ import {
   SiAndroidstudio,
   SiPostman,
   SiGradle,
-  SiFlutter
+  SiFlutter,
 } from 'react-icons/si';
+import Section from './Section';
+import SectionHeader from './SectionHeader';
+
+interface Skill {
+  name: string;
+  icon: ReactNode;
+}
+
+const ic = 'text-[15px] text-ink-500 transition-colors group-hover:text-signal-amber';
+
+const skillCategories: { category: string; skills: Skill[] }[] = [
+  {
+    category: 'Languages',
+    skills: [
+      { name: 'Kotlin', icon: <SiKotlin className={ic} /> },
+      { name: 'Java', icon: <FaJava className={ic} /> },
+    ],
+  },
+  {
+    category: 'Mobile Development',
+    skills: [
+      { name: 'Android SDK', icon: <FaAndroid className={ic} /> },
+      { name: 'Kotlin Multiplatform', icon: <SiKotlin className={ic} /> },
+      { name: 'Jetpack Compose', icon: <SiJetpackcompose className={ic} /> },
+      {
+        name: 'Compose Multiplatform',
+        icon: (
+          <img
+            src="/compose-multiplatform.svg"
+            alt=""
+            className="h-[15px] w-[15px] opacity-60 grayscale transition group-hover:opacity-100 group-hover:grayscale-0"
+          />
+        ),
+      },
+      { name: 'Flutter', icon: <SiFlutter className={ic} /> },
+      { name: 'Android Studio', icon: <SiAndroidstudio className={ic} /> },
+    ],
+  },
+  {
+    category: 'Realtime, Location & IoT',
+    skills: [
+      { name: 'MQTT (HiveMQ)', icon: <FaSatelliteDish className={ic} /> },
+      { name: 'WebSocket', icon: <FaNetworkWired className={ic} /> },
+      { name: 'WebRTC / RTSP', icon: <FaVideo className={ic} /> },
+      { name: 'GPS & Geofencing', icon: <FaMapMarkedAlt className={ic} /> },
+      { name: 'BLE', icon: <FaBluetoothB className={ic} /> },
+    ],
+  },
+  {
+    category: 'Architecture & Libraries',
+    skills: [
+      { name: 'MVVM / MVI', icon: <FaSitemap className={ic} /> },
+      { name: 'Clean Architecture', icon: <FaLayerGroup className={ic} /> },
+      { name: 'Coroutines & Flow', icon: <FaBolt className={ic} /> },
+      { name: 'Hilt / Koin', icon: <FaCubes className={ic} /> },
+      { name: 'Room / SQLDelight', icon: <FaDatabase className={ic} /> },
+      { name: 'Ktor', icon: <FaExchangeAlt className={ic} /> },
+    ],
+  },
+  {
+    category: 'Web Development',
+    skills: [
+      { name: 'React', icon: <FaReact className={ic} /> },
+      { name: 'Vue.js', icon: <FaVuejs className={ic} /> },
+      { name: 'Laravel', icon: <FaLaravel className={ic} /> },
+    ],
+  },
+  {
+    category: 'Backend & Database',
+    skills: [
+      { name: 'Firebase', icon: <SiFirebase className={ic} /> },
+      { name: 'SQLite', icon: <SiSqlite className={ic} /> },
+      { name: 'REST API', icon: <FaDatabase className={ic} /> },
+      { name: 'Node.js Scraping', icon: <FaServer className={ic} /> },
+    ],
+  },
+  {
+    category: 'Tools & Others',
+    skills: [
+      { name: 'Git', icon: <FaGitAlt className={ic} /> },
+      { name: 'Gradle', icon: <SiGradle className={ic} /> },
+      { name: 'Postman', icon: <SiPostman className={ic} /> },
+      { name: 'Figma', icon: <FaFigma className={ic} /> },
+    ],
+  },
+];
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      category: "Languages",
-      skills: [
-        { name: "Kotlin", icon: <SiKotlin className="text-5xl" />, color: "text-purple-500" },
-        { name: "Java", icon: <FaJava className="text-5xl" />, color: "text-red-500" },
-      ]
-    },
-    {
-      category: "Mobile Development",
-      skills: [
-        { name: "Android SDK", icon: <FaAndroid className="text-5xl" />, color: "text-green-500" },
-        { name: "Kotlin Multiplatform", icon: <SiKotlin className="text-5xl" />, color: "text-purple-600" },
-        { name: "Jetpack Compose", icon: <SiJetpackcompose className="text-5xl" />, color: "text-blue-500" },
-        { name: "Compose Multiplatform", icon: <img src="/compose-multiplatform.svg" alt="Compose Multiplatform" className="w-12 h-12" />, color: "" },
-        { name: "Flutter", icon: <SiFlutter className="text-5xl" />, color: "text-cyan-400" },
-        { name: "Android Studio", icon: <SiAndroidstudio className="text-5xl" />, color: "text-green-400" },
-      ]
-    },
-    {
-      category: "Realtime, Location & IoT",
-      skills: [
-        { name: "MQTT (HiveMQ)", icon: <FaSatelliteDish className="text-5xl" />, color: "text-orange-500" },
-        { name: "WebSocket", icon: <FaNetworkWired className="text-5xl" />, color: "text-blue-400" },
-        { name: "WebRTC / RTSP", icon: <FaVideo className="text-5xl" />, color: "text-red-400" },
-        { name: "GPS & Geofencing", icon: <FaMapMarkedAlt className="text-5xl" />, color: "text-green-500" },
-        { name: "BLE", icon: <FaBluetoothB className="text-5xl" />, color: "text-blue-500" },
-      ]
-    },
-    {
-      category: "Architecture & Libraries",
-      skills: [
-        { name: "MVVM / MVI", icon: <FaSitemap className="text-5xl" />, color: "text-purple-400" },
-        { name: "Clean Architecture", icon: <FaLayerGroup className="text-5xl" />, color: "text-teal-400" },
-        { name: "Coroutines & Flow", icon: <FaBolt className="text-5xl" />, color: "text-yellow-400" },
-        { name: "Hilt / Koin", icon: <FaCubes className="text-5xl" />, color: "text-pink-400" },
-        { name: "Room / SQLDelight", icon: <FaDatabase className="text-5xl" />, color: "text-blue-400" },
-        { name: "Ktor", icon: <FaExchangeAlt className="text-5xl" />, color: "text-indigo-400" },
-      ]
-    },
-    {
-      category: "Web Development",
-      skills: [
-        { name: "React", icon: <FaReact className="text-5xl" />, color: "text-cyan-500" },
-        { name: "Vue.js", icon: <FaVuejs className="text-5xl" />, color: "text-green-600" },
-        { name: "Laravel", icon: <FaLaravel className="text-5xl" />, color: "text-red-600" },
-      ]
-    },
-    {
-      category: "Backend & Database",
-      skills: [
-        { name: "Firebase", icon: <SiFirebase className="text-5xl" />, color: "text-yellow-500" },
-        { name: "SQLite", icon: <SiSqlite className="text-5xl" />, color: "text-blue-400" },
-        { name: "REST API", icon: <FaDatabase className="text-5xl" />, color: "text-gray-400" },
-        { name: "Node.js Scraping", icon: <FaServer className="text-5xl" />, color: "text-green-500" },
-      ]
-    },
-    {
-      category: "Tools & Others",
-      skills: [
-        { name: "Git", icon: <FaGitAlt className="text-5xl" />, color: "text-orange-600" },
-        { name: "Gradle", icon: <SiGradle className="text-5xl" />, color: "text-teal-500" },
-        { name: "Postman", icon: <SiPostman className="text-5xl" />, color: "text-orange-500" },
-        { name: "Figma", icon: <FaFigma className="text-5xl" />, color: "text-pink-500" },
-      ]
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
+  const reduce = useReducedMotion();
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gray-800/30">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
-            My <span className="text-blue-500">Skills</span>
-          </h2>
-          <div className="w-20 h-1 bg-blue-500 mx-auto mb-12"></div>
-        </motion.div>
+    <Section id="skills" tint="raised">
+      <SectionHeader index="02" label="Skills" title="My Skills" />
 
-        <div className="space-y-12">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={categoryIndex}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={containerVariants}
-            >
-              <h3 className="text-2xl font-semibold text-white mb-6">{category.category}</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skillIndex}
-                    variants={itemVariants}
-                    className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg hover:bg-gray-800/70 transition-all hover:scale-105"
-                    whileHover={{ y: -5 }}
-                  >
-                    <div className={`flex flex-col items-center justify-center ${skill.color}`}>
-                      {skill.icon}
-                      <p className="mt-4 text-white font-medium text-center">{skill.name}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-gray-400 text-lg">
-            Always learning and exploring new technologies to stay current with industry trends
-          </p>
-        </motion.div>
+      <div className="border-b border-ink-800">
+        {skillCategories.map((category, i) => (
+          <motion.div
+            key={category.category}
+            initial={reduce ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.2), ease: 'easeOut' }}
+            className="grid gap-x-10 gap-y-4 border-t border-ink-800 py-6 md:grid-cols-[190px_1fr]"
+          >
+            <div className="flex items-baseline gap-3">
+              <h3 className="mono-label text-ink-300">{category.category}</h3>
+              <span className="font-mono text-[0.7rem] text-ink-600">
+                {String(category.skills.length).padStart(2, '0')}
+              </span>
+            </div>
+            <ul className="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <li
+                  key={skill.name}
+                  className="group inline-flex items-center gap-2 rounded-md border border-ink-800 bg-ink-950/40 px-3 py-1.5 text-sm text-ink-300 transition-colors hover:border-ink-600 hover:text-ink-50"
+                >
+                  {skill.icon}
+                  <span>{skill.name}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
-    </section>
+
+      <p className="mt-10 max-w-prose text-sm leading-relaxed text-ink-500">
+        Always learning and exploring new technologies to stay current with industry trends
+      </p>
+    </Section>
   );
 }

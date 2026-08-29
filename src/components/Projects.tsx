@@ -1,8 +1,10 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaAndroid, FaTimes, FaCalendar, FaUserTie } from 'react-icons/fa';
-import { useState } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { FaTimes } from 'react-icons/fa';
+import { useState, useEffect, useRef } from 'react';
+import Section from './Section';
+import SectionHeader from './SectionHeader';
 
 interface ProjectDetail {
   title: string;
@@ -293,198 +295,233 @@ export default function Projects() {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
+  const reduce = useReducedMotion();
+  const closeRef = useRef<HTMLButtonElement | null>(null);
+  const lastFocused = useRef<HTMLElement | null>(null);
 
-  const itemVariants = {
-    hidden: { y: 40, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6
-      }
-    }
-  };
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    lastFocused.current = document.activeElement as HTMLElement;
+    const { overflow } = document.body.style;
+    document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedProject(null);
+    };
+    window.addEventListener('keydown', onKey);
+
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = overflow;
+      lastFocused.current?.focus?.();
+    };
+  }, [selectedProject]);
+
+  const headingId = 'project-modal-title';
 
   return (
-    <section id="projects" className="py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
-            My <span className="text-blue-500">Projects</span>
-          </h2>
-          <div className="w-20 h-1 bg-blue-500 mx-auto mb-4"></div>
-          <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-            A selection of recent work — realtime rail and transit systems, a Kotlin Multiplatform app, and earlier Android delivery across enterprise and government
-          </p>
-        </motion.div>
+    <Section id="projects">
+      <SectionHeader
+        index="03"
+        label="Projects"
+        title="My Projects"
+        intro="A selection of recent work — realtime rail and transit systems, a Kotlin Multiplatform app, and earlier Android delivery across enterprise and government"
+      />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
+      <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, index) => (
+          <motion.li
+            key={index}
+            initial={reduce ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.4,
+              delay: Math.min((index % 3) * 0.05, 0.15),
+              ease: 'easeOut',
+            }}
+          >
+            <article
+              role="button"
+              tabIndex={0}
+              aria-haspopup="dialog"
+              aria-label={`View details: ${project.title}`}
               onClick={() => setSelectedProject(project)}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer"
-              whileHover={{ y: -10 }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedProject(project);
+                }
+              }}
+              className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-xl border border-ink-800 bg-ink-900/50 p-6 transition-colors duration-200 hover:border-ink-600 hover:bg-ink-900"
             >
-              {/* Project Image Placeholder */}
-              <div className={`h-48 bg-gradient-to-br ${project.color} flex items-center justify-center`}>
-                <FaAndroid className="text-white text-7xl opacity-50" />
+              <span
+                aria-hidden="true"
+                className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${project.color} opacity-50 transition-opacity group-hover:opacity-100`}
+              />
+
+              <div className="flex items-center justify-between font-mono text-[0.7rem] text-ink-500">
+                <span className="text-signal-amber">P-{String(index + 1).padStart(2, '0')}</span>
+                <span>{project.dateRange}</span>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-3">{project.description}</p>
+              <h3 className="mt-4 font-display text-[1.05rem] font-medium leading-snug text-ink-50">
+                {project.title}
+              </h3>
+              <p className="mt-1 text-xs text-ink-500">{project.company}</p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="bg-blue-600/20 text-blue-400 text-xs px-3 py-1 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+              <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-400">
+                {project.description}
+              </p>
 
-                <div className="text-blue-500 text-sm font-semibold hover:text-blue-400">
-                  Click to view details →
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+              <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 border-t border-ink-800 pt-4 font-mono text-[0.7rem]">
+                <dt className="text-ink-600">role</dt>
+                <dt className="text-ink-600">duration</dt>
+                <dd className="truncate text-ink-300" title={project.role}>
+                  {project.role}
+                </dd>
+                <dd className="text-ink-300">{project.duration}</dd>
+              </dl>
 
-      {/* Modal */}
+              <ul className="mt-4 flex flex-wrap gap-1.5">
+                {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                  <li
+                    key={techIndex}
+                    className="rounded border border-ink-800 px-2 py-0.5 font-mono text-[0.7rem] text-ink-400"
+                  >
+                    {tech}
+                  </li>
+                ))}
+                {project.technologies.length > 4 && (
+                  <li className="rounded px-2 py-0.5 font-mono text-[0.7rem] text-ink-600">
+                    +{project.technologies.length - 4}
+                  </li>
+                )}
+              </ul>
+
+              <span className="mt-5 font-mono text-xs uppercase tracking-label text-ink-500 transition-colors group-hover:text-signal-amber">
+                View details →
+              </span>
+            </article>
+          </motion.li>
+        ))}
+      </ul>
+
       <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-ink-950/85 p-4 backdrop-blur-sm sm:items-center"
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={headingId}
+              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16, scale: 0.98 }}
+              animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
+              exit={reduce ? { opacity: 0 } : { opacity: 0, y: 16, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="my-auto w-full max-w-3xl overflow-hidden rounded-xl border border-ink-800 bg-ink-900"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
-              <div className={`bg-gradient-to-r ${selectedProject.color} p-6 relative`}>
+              <div className="relative border-b border-ink-800 p-6 pr-14">
+                <span
+                  aria-hidden="true"
+                  className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${selectedProject.color}`}
+                />
                 <button
+                  ref={closeRef}
+                  type="button"
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
+                  aria-label="Close"
+                  className="absolute right-4 top-4 rounded p-2 text-ink-400 transition-colors hover:text-ink-50"
                 >
-                  <FaTimes className="text-2xl" />
+                  <FaTimes className="text-lg" />
                 </button>
-                <h2 className="text-3xl font-bold text-white mb-2 pr-10">{selectedProject.title}</h2>
-                <p className="text-gray-100 text-sm">{selectedProject.dateRange} • {selectedProject.company}</p>
+                <p className="mono-label">
+                  {selectedProject.dateRange} · {selectedProject.company}
+                </p>
+                <h2
+                  id={headingId}
+                  className="mt-3 font-display text-2xl font-semibold leading-tight text-ink-50"
+                >
+                  {selectedProject.title}
+                </h2>
               </div>
 
-              {/* Content */}
-              <div className="p-6 space-y-6">
-                {/* Description */}
-                <div>
-                  <p className="text-gray-300 leading-relaxed">{selectedProject.description}</p>
-                </div>
+              <div className="max-h-[70vh] space-y-8 overflow-y-auto p-6">
+                <p className="text-[0.975rem] leading-relaxed text-ink-300">
+                  {selectedProject.description}
+                </p>
 
-                {/* Key Highlights */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-3">Key Highlights</h3>
-                  <ul className="space-y-2">
+                  <h3 className="mono-label mb-3">Key Highlights</h3>
+                  <ul className="space-y-2.5">
                     {selectedProject.highlights.map((highlight, index) => (
-                      <li key={index} className="text-gray-300 flex items-start">
-                        <span className="text-blue-500 mr-2">▸</span>
-                        {highlight}
+                      <li key={index} className="flex gap-3 text-sm leading-relaxed text-ink-300">
+                        <span className="mt-1 text-signal-green" aria-hidden="true">
+                          ▸
+                        </span>
+                        <span>{highlight}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Technical Challenges */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-3">Technical Challenges</h3>
-                  <ul className="space-y-2">
+                  <h3 className="mono-label mb-3">Technical Challenges</h3>
+                  <ul className="space-y-2.5">
                     {selectedProject.challenges.map((challenge, index) => (
-                      <li key={index} className="text-gray-300 flex items-start">
-                        <span className="text-orange-500 mr-2">▸</span>
-                        {challenge}
+                      <li key={index} className="flex gap-3 text-sm leading-relaxed text-ink-300">
+                        <span className="mt-1 text-signal-red" aria-hidden="true">
+                          ▸
+                        </span>
+                        <span>{challenge}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Impact & Results */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-3">Impact & Results</h3>
-                  <p className="text-gray-300">{selectedProject.impact}</p>
+                  <h3 className="mono-label mb-3">Impact &amp; Results</h3>
+                  <p className="text-sm leading-relaxed text-ink-300">{selectedProject.impact}</p>
                 </div>
 
-                {/* Bottom Info Grid */}
-                <div className="grid md:grid-cols-2 gap-6 pt-4 border-t border-gray-700">
-                  {/* Technology Stack */}
+                <div className="grid gap-6 border-t border-ink-800 pt-6 sm:grid-cols-2">
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-3">Technology Stack</h4>
-                    <div className="flex flex-wrap gap-2">
+                    <h4 className="mono-label mb-3">Technology Stack</h4>
+                    <ul className="flex flex-wrap gap-1.5">
                       {selectedProject.technologies.map((tech, index) => (
-                        <span
+                        <li
                           key={index}
-                          className="bg-blue-600/20 text-blue-400 text-sm px-3 py-1 rounded-full"
+                          className="rounded border border-ink-800 px-2 py-0.5 font-mono text-[0.72rem] text-ink-400"
                         >
                           {tech}
-                        </span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
-
-                  {/* Duration & Role */}
-                  <div className="space-y-4">
+                  <dl className="space-y-4 font-mono text-sm">
                     <div>
-                      <div className="flex items-center gap-2 text-gray-400 mb-1">
-                        <FaCalendar className="text-blue-500" />
-                        <span className="text-sm font-semibold">Project Duration</span>
-                      </div>
-                      <p className="text-white">{selectedProject.duration}</p>
+                      <dt className="mono-label">Project Duration</dt>
+                      <dd className="mt-1 text-ink-200">{selectedProject.duration}</dd>
                     </div>
                     <div>
-                      <div className="flex items-center gap-2 text-gray-400 mb-1">
-                        <FaUserTie className="text-blue-500" />
-                        <span className="text-sm font-semibold">My Role</span>
-                      </div>
-                      <p className="text-white">{selectedProject.role}</p>
+                      <dt className="mono-label">My Role</dt>
+                      <dd className="mt-1 text-ink-200">{selectedProject.role}</dd>
                     </div>
-                  </div>
+                  </dl>
                 </div>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </Section>
   );
 }

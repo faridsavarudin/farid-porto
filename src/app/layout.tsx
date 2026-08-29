@@ -1,8 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Sora, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-sans",
+  display: "swap",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-sora",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://faridsavarudin.vercel.app'),
@@ -125,14 +144,18 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Farid Savarudin - Android & Kotlin Multiplatform Engineer | Portfolio</title>
-        <meta name="theme-color" content="#1F2937" />
+        <meta name="theme-color" content="#090d12" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=no" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${plexSans.variable} ${sora.variable} ${plexMono.variable} font-sans bg-ink-950 text-ink-200 antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

@@ -2,48 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Farid Savarudin — portfolio visual system.
+  Dark, single-theme (control-room). Palette + type rationale in /DESIGN_NOTES.md.
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #090d12;
+  --foreground: #c9d4de;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #090d12;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(231, 163, 62, 0.28);
+  color: #f4f7f9;
+}
+
+/* Focus: one consistent amber ring everywhere. */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid #e7a33e;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Custom scrollbar — quiet, matches the ink surface. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0d131a;
+}
+::-webkit-scrollbar-thumb {
+  background: #273545;
+  border-radius: 6px;
+  border: 2px solid #0d131a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4c5f;
+}
+
+/* Mono eyebrow / kicker used on every section header instead of the
+   "one-word-in-blue + underline bar" pattern. Lives in the components layer
+   so any Tailwind text-* colour utility still overrides it. */
+@layer components {
+  .mono-label {
+    font-family: var(--font-plex-mono), ui-monospace, monospace;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8698a9;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Faint engineering grid — sits behind the whole page at very low contrast. */
+  .signal-grid {
+    background-image:
+      linear-gradient(to right, rgba(122, 143, 163, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(122, 143, 163, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Hero horizon glow — anchored, not a centered blob. */
+  .horizon-glow {
+    background:
+      radial-gradient(
+        60rem 30rem at 12% 100%,
+        rgba(231, 163, 62, 0.1),
+        transparent 60%
+      ),
+      radial-gradient(
+        50rem 30rem at 90% 0%,
+        rgba(67, 192, 141, 0.06),
+        transparent 55%
+      );
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1a1a1a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #3b82f6;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
