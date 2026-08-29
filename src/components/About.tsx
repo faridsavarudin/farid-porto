@@ -14,15 +14,15 @@ const highlights = [
   },
   {
     icon: FaWaveSquare,
-    title: 'Realtime & Field Systems',
+    title: 'Realtime & Connected Devices',
     description:
-      'MQTT, WebSocket and WebRTC, GPS telemetry and geofencing, offline durability — built for devices mounted in vehicles under unreliable networks.',
+      'MQTT, WebSocket and WebRTC, GPS telemetry and geofencing, offline durability — built for devices deployed in the field on unreliable networks.',
   },
   {
     icon: FaUserCheck,
     title: 'End-to-End Ownership',
     description:
-      'Sole engineer on four realtime rail and transit systems — architecture, delivery, production debugging, and handover documentation.',
+      'Sole engineer on four realtime Android systems — architecture, delivery, production debugging, and handover documentation.',
   },
 ];
 
@@ -40,7 +40,7 @@ export default function About() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <h3 className="font-display text-xl font-medium leading-snug text-ink-100">
-            Android engineer, 9 years, from HR tech to rail operations
+            Android engineer, 9 years, from HR tech to realtime systems
           </h3>
           <div className="mt-5 space-y-4 text-[0.975rem] leading-relaxed text-ink-400">
             <p>
@@ -50,11 +50,11 @@ export default function About() {
               unreliable networks and devices.
             </p>
             <p>
-              Most recently I was the sole engineer on four realtime Android systems for a
-              national rail operator (PT KAI) and a city-bus operator — an in-cab driver tablet,
-              a level-crossing monitoring unit, an on-board passenger-information unit, and a
-              Kotlin Multiplatform passenger app shipped at ~89% shared code with hand-written
-              MapKit interop for the iOS target. Roughly 78,000 lines of Kotlin, sole author.
+              Most recently I was the sole engineer on four realtime Android systems for
+              transport and field operations — a vehicle-mounted driver tablet, a fixed
+              monitoring unit, an on-board passenger-information display, and a Kotlin
+              Multiplatform passenger app shipped at ~89% shared code with hand-written MapKit
+              interop for the iOS target. Roughly 78,000 lines of Kotlin, sole author.
             </p>
             <p>
               I work in Kotlin and Java with Jetpack Compose, Clean Architecture and MVI/MVVM,

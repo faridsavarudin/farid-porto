@@ -4,9 +4,10 @@ Visual system for the portfolio. The goal was to move away from the generic
 dark‑gradient / one‑blue‑accent template look toward something that reads as a
 **realtime‑systems engineer's** site: precise, calm, control‑room, senior.
 
-The organising idea is **railway signalling** — a genuine motif for Farid's rail
-and transit work. Colour, the section‑header device, and the hero diagram all
-lean on it without being literal or kitsch.
+The organising idea is **status signalling** — the accent set maps to signal
+aspects (red / amber / green), fitting realtime, monitoring‑style systems. Colour,
+the section‑header device, and the hero diagram lean on it without being literal
+or kitsch. Copy is kept domain‑generic (no specific client or industry named).
 
 ---
 

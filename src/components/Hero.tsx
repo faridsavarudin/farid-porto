@@ -79,10 +79,10 @@ export default function Hero() {
             className="mt-6 max-w-prose text-base leading-relaxed text-ink-400 md:text-lg"
             itemProp="description"
           >
-            Android engineer with 9 years shipping production apps across HR tech, rail &amp;
-            transit operations, IoT, and media. Recently sole engineer on four realtime Android
-            systems for rail (PT KAI) and city-bus operators, including a Kotlin Multiplatform app
-            at ~89% shared code. Based in Bandung.
+            Android engineer with 9 years shipping production apps across HR tech, transport,
+            IoT, media, and government. Recently sole engineer on four realtime Android systems
+            for connected devices and field operations, including a Kotlin Multiplatform app at
+            ~89% shared code. Based in Bandung.
           </motion.p>
 
           <motion.div {...rise(0.24)} className="mt-9 flex flex-wrap items-center gap-3">

@@ -3,20 +3,20 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
 /**
- * An honest, diagrammatic motif for the realtime-systems work: four field
- * devices reporting to a control centre over MQTT / WebSocket / GPS. Decorative
- * (aria-hidden) — it echoes the systems described in the copy, invents nothing.
+ * A generic diagrammatic motif for realtime-systems work: clients and devices
+ * streaming to a backend over MQTT / WebSocket / BLE / GPS. Decorative
+ * (aria-hidden) — it echoes the kind of systems described in the copy.
  */
 const nodes = [
-  { id: 'cab', label: 'cab', y: 46 },
-  { id: 'crossing', label: 'crossing', y: 132 },
-  { id: 'bus', label: 'bus', y: 218 },
-  { id: 'app', label: 'app', y: 304 },
+  { id: 'device', label: 'device', y: 46 },
+  { id: 'sensor', label: 'sensor', y: 132 },
+  { id: 'mobile', label: 'mobile', y: 218 },
+  { id: 'client', label: 'client', y: 304 },
 ];
 
 const edges = [
   { y: 46, label: 'MQTT' },
-  { y: 132, label: 'MQTT' },
+  { y: 132, label: 'BLE' },
   { y: 218, label: 'GPS' },
   { y: 304, label: 'WebSocket' },
 ];
@@ -31,14 +31,14 @@ export default function SystemDiagram() {
   return (
     <div className="rounded-xl border border-ink-800 bg-ink-900/70 p-5 shadow-[0_1px_0_rgba(255,255,255,0.03)_inset]">
       <div className="mb-4 flex items-center justify-between">
-        <span className="mono-label">signal path</span>
+        <span className="mono-label">data pipeline</span>
         <span className="flex items-center gap-1.5 font-mono text-[0.7rem] text-ink-500">
           <span className="h-1.5 w-1.5 rounded-full bg-signal-green" /> live
         </span>
       </div>
 
       <svg
-        viewBox="0 0 380 350"
+        viewBox="-40 0 420 350"
         className="w-full"
         role="img"
         aria-hidden="true"
@@ -116,7 +116,7 @@ export default function SystemDiagram() {
           className="fill-ink-400 font-mono"
           fontSize={10}
         >
-          control
+          backend
         </text>
       </svg>
     </div>
