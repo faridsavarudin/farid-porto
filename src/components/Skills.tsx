@@ -90,6 +90,7 @@ const skillCategories: { category: string; skills: Skill[] }[] = [
       { name: 'Hilt / Koin', icon: <FaCubes className={ic} /> },
       { name: 'Room / SQLDelight', icon: <FaDatabase className={ic} /> },
       { name: 'Ktor', icon: <FaExchangeAlt className={ic} /> },
+      { name: 'BLoC / GetX', icon: <FaSitemap className={ic} /> },
     ],
   },
   {

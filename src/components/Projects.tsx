@@ -140,6 +140,26 @@ export default function Projects() {
       color: "from-purple-600 to-indigo-600"
     },
     {
+      title: "Islamic Mind — Flutter E-Learning App",
+      dateRange: "Aug 2022 - Oct 2022",
+      company: "Islamic Mind (Freelance)",
+      description: "Islamic-studies e-learning app built in Flutter — quizzes, assessments, video lessons and in-app payment, on a GetX-based architecture. Freelance work alongside a full-time Android role.",
+      highlights: [
+        "Built settings, profile-summary and confirmation-dialog screens",
+        "Implemented dynamic chart coloring for quiz-result visualizations with fl_chart",
+        "Worked inside an existing GetX/modules architecture (assessment, learn, quiz, payment) shared with the rest of the team"
+      ],
+      challenges: [
+        "Picking up a GetX-based codebase distinct from the BLoC pattern used on other Flutter work",
+        "Shipping polished UI screens (charts, dialogs) against an existing design and module structure"
+      ],
+      impact: "Shipped user-facing settings, profile and quiz-result screens for an active e-learning product.",
+      technologies: ["Flutter", "Dart", "GetX", "fl_chart", "Pusher"],
+      duration: "3 months",
+      role: "Flutter Developer, Freelance",
+      color: "from-teal-600 to-green-600"
+    },
+    {
       title: "Ars. - AR/VR Media Platform",
       dateRange: "Jan 2019 - Dec 2020",
       company: "Ars.",
@@ -160,6 +180,26 @@ export default function Projects() {
       duration: "2 years",
       role: "Mobile Application Developer",
       color: "from-pink-600 to-rose-600"
+    },
+    {
+      title: "kendali — Enterprise Workflow App (Flutter)",
+      dateRange: "Sep 2020 - Oct 2020",
+      company: "Codelite (Freelance)",
+      description: "Flutter enterprise workflow app covering approvals, e-signature PDF signing, in-app video meetings, chat, and attendance/location tracking. Contributed to a multi-developer BLoC codebase, freelance alongside a full-time Android role.",
+      highlights: [
+        "Built registration, forgot-password and change-password flows",
+        "Implemented calendar and event-scheduling features",
+        "Contributed UI features (icons, quick actions, admin-only visibility rules) to two related apps on the same codebase and team — presisi and an internal Flutter boilerplate"
+      ],
+      challenges: [
+        "Landing auth and scheduling features inside a large, multi-developer BLoC codebase without regressing existing modules",
+        "Coordinating with a fast-moving freelance team across several related app variants"
+      ],
+      impact: "Delivered working auth and scheduling flows for an enterprise workflow app used internally by client teams.",
+      technologies: ["Flutter", "Dart", "BLoC", "Firebase", "Hive", "Agora RTC"],
+      duration: "2 months",
+      role: "Flutter Developer, Freelance",
+      color: "from-sky-600 to-indigo-600"
     },
     {
       title: "SMARTernak - Livestock Monitoring System",
@@ -327,7 +367,7 @@ export default function Projects() {
         index="03"
         label="Projects"
         title="My Projects"
-        intro="A selection of recent work — realtime systems for connected devices, a Kotlin Multiplatform app, and earlier Android delivery across enterprise and government"
+        intro="A selection of recent work — realtime systems for connected devices, a Kotlin Multiplatform app, freelance Flutter apps, and earlier Android delivery across enterprise and government"
       />
 
       <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
