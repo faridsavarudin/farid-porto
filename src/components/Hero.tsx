@@ -71,7 +71,7 @@ export default function Hero() {
             className="mt-5 text-xl text-ink-300 md:text-2xl"
             itemProp="jobTitle"
           >
-            Android &amp; Kotlin Multiplatform Engineer
+            Android, Kotlin Multiplatform &amp; Flutter Engineer
           </motion.h2>
 
           <motion.p
@@ -79,10 +79,11 @@ export default function Hero() {
             className="mt-6 max-w-prose text-base leading-relaxed text-ink-400 md:text-lg"
             itemProp="description"
           >
-            Android engineer with 9 years shipping production apps across HR tech, transport,
-            IoT, media, and government. Recently sole engineer on four realtime Android systems
-            for connected devices and field operations, including a Kotlin Multiplatform app at
-            ~89% shared code. Based in Bandung.
+            Mobile engineer with 9 years shipping production apps across HR tech, transport,
+            IoT, media, and government — native Android, Kotlin Multiplatform, and Flutter.
+            Recently sole engineer on four realtime Android systems for connected devices and
+            field operations, including a Kotlin Multiplatform app at ~89% shared code, alongside
+            production Flutter apps built freelance. Based in Bandung.
           </motion.p>
 
           <motion.div {...rise(0.24)} className="mt-9 flex flex-wrap items-center gap-3">

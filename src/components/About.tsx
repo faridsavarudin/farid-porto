@@ -8,9 +8,9 @@ import SectionHeader from './SectionHeader';
 const highlights = [
   {
     icon: FaMobileAlt,
-    title: 'Android & Kotlin Multiplatform',
+    title: 'Android, Kotlin Multiplatform & Flutter',
     description:
-      'Nine years in Kotlin and Java — Jetpack Compose, Clean Architecture, and Compose Multiplatform shipped to Android and iOS from one codebase.',
+      'Nine years in Kotlin and Java — Jetpack Compose, Clean Architecture, and Compose Multiplatform shipped to Android and iOS from one codebase — plus production Flutter apps built freelance with BLoC and GetX.',
   },
   {
     icon: FaWaveSquare,
@@ -40,7 +40,7 @@ export default function About() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <h3 className="font-display text-xl font-medium leading-snug text-ink-100">
-            Android engineer, 9 years, from HR tech to realtime systems
+            Mobile engineer, 9 years, across Android, Kotlin Multiplatform and Flutter
           </h3>
           <div className="mt-5 space-y-4 text-[0.975rem] leading-relaxed text-ink-400">
             <p>
@@ -57,10 +57,16 @@ export default function About() {
               interop for the iOS target. Roughly 78,000 lines of Kotlin, sole author.
             </p>
             <p>
-              I work in Kotlin and Java with Jetpack Compose, Clean Architecture and MVI/MVVM,
-              and I am most useful on the failure modes that only show up in production —
-              half-open sockets, stale location caches, and errors that never raise. Based in
-              Bandung.
+              Alongside that, I&apos;ve shipped Flutter freelance work in production —
+              an enterprise workflow app with approvals, e-signature and video meetings on a
+              BLoC codebase, and an e-learning app with quizzes and payments on GetX — picking
+              up each stack&apos;s own architecture rather than forcing one pattern everywhere.
+            </p>
+            <p>
+              I work in Kotlin, Java and Dart across Jetpack Compose, Clean Architecture,
+              MVI/MVVM, BLoC and GetX, and I am most useful on the failure modes that only show
+              up in production — half-open sockets, stale location caches, and errors that never
+              raise. Based in Bandung.
             </p>
           </div>
         </motion.div>
